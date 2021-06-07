@@ -22,7 +22,9 @@ const router = express.Router();
 
 router.get('/all', allTasks);
 router.post('/create', createTask);
-router.put('/update', updateTask);
-router.delete('delete', deleteTask);
+router.put('/update/:taskId', updateTask);
+router.delete('delete/:taskId', deleteTask);
+
+router.param('taskId', taskId);
 
 module.exports = router;

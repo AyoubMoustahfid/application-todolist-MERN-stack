@@ -10,7 +10,9 @@ const {
     // route PUT: /update
     updateCategory,
     // route DELETE: /delete
-    deleteCategory
+    deleteCategory,
+    // route PARAM
+    categoryId
  } = require('../controllers/categoryController')
 
 
@@ -18,9 +20,11 @@ router.get('/all', allCategories);
 
 router.post('/create',  createCategory);
 
-router.put('/update',  updateCategory);
+router.put('/update/:categoryId',  updateCategory);
 
-router.delete('/delete', deleteCategory);
+router.delete('/delete/:categoryId', deleteCategory);
+
+router.param('categoryId', categoryId);
 
 
 module.exports = router;
